@@ -35,7 +35,11 @@ public class WhatIsMyIP {
 
     public static void main(String args[]) throws MalformedURLException, IOException {
          if (checkInternetConnection()) {
-            System.out.println("Your Public Ip is: " + readIP());
+           try {
+                System.out.println("Your Public Ip is: " + readIP());
+            } catch (Exception error) {
+                System.out.println(error.getMessage());
+            }
         } else {
             System.out.println("No Internet connection !!!");
         }
