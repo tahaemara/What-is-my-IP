@@ -27,7 +27,7 @@ public class WhatIsMyIP {
         return false;
     }
 
-    static String readIP() throws MalformedURLException, IOException {
+    public static String readIP() throws MalformedURLException, IOException {
         URL myIP = new URL("http://icanhazip.com/");
         BufferedReader in = new BufferedReader(new InputStreamReader(myIP.openStream()));
         return in.readLine();
