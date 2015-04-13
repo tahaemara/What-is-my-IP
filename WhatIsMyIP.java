@@ -12,6 +12,17 @@ import java.net.URL;
  * LinkedIn: https://www.linkedin.com/in/tahaemara
  */
 public class WhatIsMyIP {
+     
+      public static boolean checkInternetConnection() throws SocketException {
+        Enumeration interfaces = NetworkInterface.getNetworkInterfaces();
+        while (interfaces.hasMoreElements()) {
+            NetworkInterface interf = (NetworkInterface) interfaces.nextElement();
+            if (interf.isUp() && !interf.isLoopback()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     static String readIP() throws MalformedURLException, IOException {
         URL myIP = new URL("http://icanhazip.com/");
@@ -20,7 +31,10 @@ public class WhatIsMyIP {
     }
 
     public static void main(String args[]) throws MalformedURLException, IOException {
-        System.out.println("Your Public Ip is: " + readIP());
-
+         if (checkInternetConnection()) {
+            System.out.println("Your Public Ip is: " + readIP());
+        } else {
+            System.out.println("No Internet connectio !!!");
+        }
     }
 }
