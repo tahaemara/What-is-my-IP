@@ -37,7 +37,7 @@ public class WhatIsMyIP {
          if (checkInternetConnection()) {
             System.out.println("Your Public Ip is: " + readIP());
         } else {
-            System.out.println("No Internet connectio !!!");
+            System.out.println("No Internet connection !!!");
         }
     }
 }
